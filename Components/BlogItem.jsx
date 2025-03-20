@@ -2,27 +2,27 @@ import { assets, blog_data } from '@/Assets/assets';
 import Image from 'next/image'; 
 import React from 'react';
 
-const BlogItem = () => {
+const BlogItem = ({ title, description, category, image }) => {
   return (
-    <div className="max-w-[330px] sm:max-w-[330px] bg-white border border-black hover:shadow-[-7px_7px_0px_#000000]">
+    <div className="max-w-[350px] sm:max-w-[350px] bg-white border border-gray-200 rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer">
       <Image 
-        src={blog_data[0].image} 
+        src={image} 
         alt="blog data" 
         width={400} 
         height={400} 
-        className="border-b border-black"
+        className="w-full h-56 object-cover"
       />
-      <p className='ml-5 mt-5 px-1 inline-block bg-black text-white text-sm'>
-        {blog_data[0].category}
+      <p className='ml-5 mt-5 px-2 py-1 inline-block bg-indigo-600 text-white text-xs rounded-md uppercase tracking-wide'>
+        {category}
       </p>
-      <div className='p-5'>
-        <h5 className='mb-2 text-lg font-medium tracking-tight text-gray-900'>
-          {blog_data[0].title}
+      <div className='p-6'>
+        <h5 className='mb-2 text-xl font-semibold text-gray-900'>
+          {title}
         </h5>
-        <p className='mb-3 text-sm tracking-tight text-gray-700'>
-          {blog_data[0].description}
+        <p className='mb-4 text-sm text-gray-600'>
+          {description}
         </p>
-        <div className="inline-flex items-center py-2 font-semibold text-center">
+        <div className="inline-flex items-center py-2 font-semibold text-indigo-600 cursor-pointer hover:text-indigo-800 transition-colors duration-300">
           Read More
           <Image 
             src={assets.arrow} 
